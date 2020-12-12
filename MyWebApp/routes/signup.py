@@ -11,16 +11,16 @@ from flask import render_template, redirect, url_for, session
 from flask_login import LoginManager, login_required, logout_user, login_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import app, db # pylint: disable=import-error disable=no-name-in-module
-from models import User, Branch # pylint: disable=import-error
+from models import User# pylint: disable=import-error
 
 
 class LoginForm(FlaskForm):
     '''
     login form flask using flaskform
     '''
-    email = StringField('אימייל', render_kw={"placeholder": "username@domain.com"},
+    email = StringField('email', render_kw={"placeholder": "username@domain.com"},
                         validators=[InputRequired(), Length(min=3, max=50)])
-    password = PasswordField('סיסמה', render_kw={"placeholder": "******"},
+    password = PasswordField('password', render_kw={"placeholder": "******"},
     validators=[InputRequired(),Length(min=6,message="*בבקשה הכנס סיסמה המכילה לפחות 6 תווים*")])
     def validate_email(self,email): #pylint: disable=no-self-use
         '''
@@ -48,12 +48,12 @@ class RegisterForm(FlaskForm):
     '''
     register form flask using flaskform
     '''
-    email = EmailField('אימייל', render_kw={"placeholder": "username@domain.com"},
+    email = EmailField('email', render_kw={"placeholder": "username@domain.com"},
                         validators=[InputRequired(), Length(min=3, max=50)])
-    username = StringField('שם משתמש', validators=[InputRequired(), Length(min=3, max=10)])
-    password = PasswordField('סיסמא', render_kw={"placeholder": "******"},
-    validators=[InputRequired(),Length(min=6,message="*בבקשה הכנס סיסמה המכילה לפחות 6 תווים*")])
-    confirm = PasswordField('ודא סיסמא', validators=[InputRequired(), EqualTo('password')])
+    username = StringField('username', validators=[InputRequired(), Length(min=3, max=10)])
+    password = PasswordField('password', render_kw={"placeholder": "******"},
+    validators=[InputRequired(),Length(min=6,message="*please enter at leat 6 characters*")])
+    confirm = PasswordField('validate password', validators=[InputRequired(), EqualTo('password')])
     
 
 
@@ -101,7 +101,7 @@ def register():
         hash_password = generate_password_hash(form.password.data, method='sha256')
         new_user = User(name=form.username.data,
         email=form.email.data,
-        password=hash_password, city=form.city.data)
+        password=hash_password)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('login'))

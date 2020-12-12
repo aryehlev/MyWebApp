@@ -1,11 +1,15 @@
 <!doctype html>
 <html lang="en" dir="rtl">
   <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Jekyll v4.1.1">
-  <link rel="shortcut icon" href="#">
-  <title>superX</title>
+<meta charset="utf-8">
+  <title>Aryeh's</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="../static/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../static/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-16x16.png">
+  <link rel="manifest" href="../static/img/site.webmanifest">
+  <link rel="mask-icon" href="../static/img/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
   {%block style%}
 
 
@@ -22,37 +26,30 @@
   </head>
 
 
-  <body dir="rtl">
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light" id="navi">
+  <body dir="rtl" style="background: linear-gradient(to bottom, #33ccff 32%, #ff99cc 90%);">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light navbar border-bottom border-dark" id="navi" >
 
-    <a class="navbar-brand" href="{{ url_for('index')}}" style="color: green;"><strong>SuperX</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+   <a class="navbar-brand" href="{{ url_for('index')}}" style="color:  rgb(130, 130, 223);"><img title="icon" alt="icon" src="../static/img/lion.png" width="40px"></a>
+   
 
-    {% if current_user.is_authenticated %}
-    <h5> שלום  {{ current_user.name }}! </h5>
-    {% endif %}
+  
 
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault" >
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url_for('login')}}" style="color: green;"><b> כניסה/הרשמה &ensp;</b></a>
+        <a class="nav-link" href="{{ url_for('login')}}" style="color:  rgb(130, 130, 223);"><b> login/register &ensp;</b></a>
       </li>
+
       <li class="nav-item active">
-        <a class="nav-link" href="#" style="color: green;"><b> אזור אישי &ensp;</b></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#" style="color: green;"><b>עזרה</b></a>
+        <a class="nav-link" href="{{ url_for('contact')}}" style="color:  rgb(130, 130, 223);"><b>contact</b></a>
       </li>
       {% if current_user.is_authenticated %}
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url_for('logout')}}">יציאה</a>
+        <a class="nav-link" href="{{ url_for('logout')}}">logout</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{ url_for('personal_space')}}">יציאה</a>
+        <a class="nav-link" href="{{ url_for('personal_space')}}"><b> current_user.name&ensp;</b></a>
       </li>
       {% endif %}
     </ul>
@@ -67,8 +64,8 @@
 {%endblock%}
 </body>
 
-<footer class="container" style="color: green">
-<p>&copy; superX  2020</p>
+<footer class="container" style="color: rgb(130, 130, 223)">
+<p>&copy; Aryeh</p>
 </footer>
 
 <!-- Need to have JQuery and Javascript for DropDown Actions to work -->

@@ -14,6 +14,12 @@ def index():
     """
     return home.home()
 
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    """
+    contact info route
+    """
+    return home.contact()
 
 
 @app.route('/login', methods=['GET', 'POST'])

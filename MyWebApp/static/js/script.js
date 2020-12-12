@@ -48,39 +48,30 @@ function addItem(product_id, product_name, num_items){
 }
 
 // function that removes table row and if there are no items in cart - disabled 'comparebutton' button
-function removeItem(product_id) {
+function contact() {
   $.ajax({
-    url: "/removeItem",
+    url: "/contact",
     method: "POST",
-    data: {id: product_id},
     success: function (res) {
-      $('#' + product_id).remove();
-      if ($('#cartbody tr').length === 0) {
-          $("#comperbutton").attr('disabled', '');
-  }
+    
 }
 })
 }
 
 // live search
 $(document).ready(function(e) {
-    var timeout;
-    var delay = 500;   // 0.5 seconds
-
-    if ($('#cartbody tr').length === 0) {
-        $("#comperbutton").attr('disabled', '');
-    } else {
-        $('#comperbutton').removeAttr('disabled');
-    }
-
-    $("#myInput").keypress(function(e) {
-        console.log("User started typing");
-        if(timeout) {
-            clearTimeout(timeout);
+     
+    $("#form-Info").click(function(e) {
+      $.ajax({
+        url: "/city_search",
+        method: "POST",
+        success: function (res) {
+    
         }
-        timeout = setTimeout(function() {
-            search();
-        }, delay);
+      })   
+    })
+
+      
     });
 
     function search() {
