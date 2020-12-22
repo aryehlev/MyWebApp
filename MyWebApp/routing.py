@@ -3,7 +3,7 @@ import app and routing modules
 """
 
 from app import app
-from routes import home, signup
+from routes import home
 from flask import session, request, render_template
 
 
@@ -22,33 +22,19 @@ def contact():
     return home.contact()
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/projects', methods=['GET', 'POST'])
+def projects():
     """
-    logging in route
+    projects route
     """
-    return signup.login()
+    return home.projects()
 
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
+@app.route('/burgers', methods=['GET', 'POST'])
+def burgers():
     """
-    registering route
+    burgers route
     """
-    return signup.register()
-
-
-@app.route('/cart', methods=['GET', 'POST'])
-
-
-@app.route("/logout")
-def logout():
-    """
-    logout route
-    """
-    return signup.logout()
-
-
+    return home.burgers()
 
 @app.errorhandler(404)
 def page_not_found():

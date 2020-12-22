@@ -15,18 +15,17 @@ def home():
     """
     return render_template('home.jinja2')
     
-def question_one():
+def projects():
     """
-    returns first question
+    returns project page
     """
-    return render_template('first.html')
-    
-def question_two():
+    return "here ther will be projects"
+
+def burgers():
     """
-    returns second question
+    returns burgers page
     """
-    return render_template('second.jinja2')
-    
+    return "here ther will be burgers"
 
 def contact():
     """
